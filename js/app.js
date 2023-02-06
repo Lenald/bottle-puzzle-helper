@@ -8,8 +8,8 @@ requirejs.config({
         ready: 'ready',
         palette: 'palette',
         popup: 'popup',
-        popupPalette: 'popup-palette'
+        popupPalette: 'popupPalette'
     }
-})
+});
 
 requirejs(['ready']);
