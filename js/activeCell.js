@@ -14,7 +14,7 @@ define([
         initObservers: function() {
             let self = this;
 
-            $(document).on('click', '.glass > div', function(e) {
+            $(document).on('click', '.bottle > div', function(e) {
                 self.init(e);
 
                 /*

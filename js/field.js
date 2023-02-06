@@ -30,21 +30,21 @@ define([
 
             $('#field').html(html);
 
-            $(`#palette-counter [class^="tile-"], #popup-palette [class^="tile-"]`).each(function() {
+            $(`#palette-counter [class^="cell-"], #popup-palette [class^="cell-"]`).each(function() {
                 $(this).removeClass('inactive');
             });
 
-            $('#palette-counter [class^="tile-"] div').each(function() {
+            $('#palette-counter [class^="cell-"] div').each(function() {
                 $(this).html(0);
             });
         },
 
         getGlassHtml: function() {
-            return '<div class="glass">' + '<div class="tile-black"></div>'.repeat(4) + '</div>';
+            return '<div class="flask">' + '<div class="cell-black"></div>'.repeat(4) + '</div>';
         },
 
         getEmptyGlassHtml() {
-            return '<div class="glass"></div>';
+            return '<div class="flask"></div>';
         }
     }
 });

@@ -1,5 +1,5 @@
 //vars
-@tileSize: 40px;
+@cellSize: 40px;
 @spaceBetween: 5px;
 @text-stroke-size: 2px;
 
@@ -45,9 +45,9 @@ button {
   margin-bottom: 40px
 }
 
-[class^='tile-'] {
-  width: @tileSize;
-  height: @tileSize;
+[class^='cell-'] {
+  width: @cellSize;
+  height: @cellSize;
   cursor: pointer;
   font-weight: bold;
   display: flex;
@@ -61,19 +61,19 @@ button {
   }
 }
 
-.tile-red { background: @red; }
-.tile-orange { background: @orange; }
-.tile-yellow { background: @yellow; }
-.tile-mint { background: @mint; }
-.tile-lime { background: @lime; }
-.tile-green { background: @green; }
-.tile-cyan { background: @cyan; }
-.tile-blue { background: @blue; }
-.tile-purple { background: @purple; }
-.tile-magenta { background: @magenta; }
-.tile-pink { background: @pink; }
-.tile-grey { background: @grey; }
-.tile-black {
+.cell-red { background: @red; }
+.cell-orange { background: @orange; }
+.cell-yellow { background: @yellow; }
+.cell-mint { background: @mint; }
+.cell-lime { background: @lime; }
+.cell-green { background: @green; }
+.cell-cyan { background: @cyan; }
+.cell-blue { background: @blue; }
+.cell-purple { background: @purple; }
+.cell-magenta { background: @magenta; }
+.cell-pink { background: @pink; }
+.cell-grey { background: @grey; }
+.cell-black {
   background: @dark-grey;
 
   &:after {
@@ -83,18 +83,18 @@ button {
   }
 }
 
-.glass{
+.bottle{
   border: 2px solid @light-grey;
-  border-radius: 0 0 calc(@tileSize / 2) calc(@tileSize / 2);
-  width: @tileSize;
-  height: calc(@tileSize * 4 + @tileSize / 2);
+  border-radius: 0 0 calc(@cellSize / 2) calc(@cellSize / 2);
+  width: @cellSize;
+  height: calc(@cellSize * 4 + @cellSize / 2);
   margin: @spaceBetween;
   overflow: hidden;
   display: flex;
   flex-direction: column-reverse;
   justify-content: flex-start;
 
-  [class^='tile-']:hover {
+  [class^='cell-']:hover {
     opacity: .6;
   }
 }
@@ -103,7 +103,7 @@ button {
   display: none;
   flex-direction: column;
   justify-content: space-evenly;
-  width: calc(@tileSize * 4 + @spaceBetween * 5);
+  width: calc(@cellSize * 4 + @spaceBetween * 5);
   height: $width;
   background: @white;
   position: absolute;
@@ -114,11 +114,11 @@ button {
     justify-content: space-evenly;
     margin-bottom: 0;
 
-    [class^='tile-']:not(.inactive):hover {
+    [class^='cell-']:not(.inactive):hover {
       border: 2px dashed @white;
     }
 
-    [class^='tile-'].inactive {
+    [class^='cell-'].inactive {
       cursor: default;
     }
   }
@@ -128,14 +128,14 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  width: calc(@tileSize * 6 + @spaceBetween * 7);
-  height: calc(@tileSize * 2 + @spaceBetween * 3);
+  width: calc(@cellSize * 6 + @spaceBetween * 7);
+  height: calc(@cellSize * 2 + @spaceBetween * 3);
 
   .row {
     margin-bottom: 0;
     justify-content: space-evenly;
 
-    [class^='tile-'] {
+    [class^='cell-'] {
       cursor: default;
 
       div {
@@ -143,7 +143,7 @@ button {
         align-content: center;
         align-items: center;
         justify-content: space-around;
-        width: calc(@tileSize / 2);
+        width: calc(@cellSize / 2);
         height: $width;
         background: @white;
         color: @dark-grey;

@@ -21,7 +21,7 @@ define([
         },
 
         updateCounter: function (prevColor, currentColor) {
-            if (prevColor !== `tile-black`) {
+            if (prevColor !== `cell-black`) {
                 let element = $(`#palette-counter .${prevColor} div`);
                 element.html(parseInt(element.html()) - 1);
 
@@ -30,7 +30,7 @@ define([
                 }
             }
 
-            if (currentColor !== `tile-black`) {
+            if (currentColor !== `cell-black`) {
                 let element = $(`#palette-counter .${currentColor} div`);
                 element.html(parseInt(element.html()) + 1);
 
