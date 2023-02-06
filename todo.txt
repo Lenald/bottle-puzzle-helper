@@ -1,0 +1,14 @@
+features:
+inactivate extra colors if there is more colors than bottles
+drag'n'drop from glass to glass
+history (for undo)
+settings
+about
+
+bugs:
+click on an inactive color on the popup-palette hides the popup
+    the bug appears if the page's height is too short (for example, dev tools is open on the bottom of the window)
+    and the popup doesn't fit the page, so you need to scroll down.
+    If the page is scrolled, the calculation of outOfY goes wrong, and the popup is being closed coz of hideOnOuterClick
+    Meanwhile, if an active color was clicked, the activeCell's color is being changed.
+recalculation of the popup-palette X (left) on zoom goes wrong

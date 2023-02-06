@@ -1,0 +1,152 @@
+body {
+  background: #1D1D1F;
+}
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  border: none;
+  border-left: 1px solid #B3BDAA;
+  border-radius: 0 12px 12px 0;
+  background: white;
+  font-weight: bold;
+}
+button:hover {
+  background: #B3BDAA;
+}
+.row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+[class^='tile-'] {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+[class^='tile-'].inactive {
+  opacity: 0;
+  cursor: not-allowed;
+}
+.tile-red {
+  background: #B43A39;
+}
+.tile-orange {
+  background: #D98235;
+}
+.tile-yellow {
+  background: #FFE641;
+}
+.tile-mint {
+  background: #00E6A6;
+}
+.tile-lime {
+  background: #67AA0D;
+}
+.tile-green {
+  background: #395210;
+}
+.tile-cyan {
+  background: #55A3E5;
+}
+.tile-blue {
+  background: #0025CB;
+}
+.tile-purple {
+  background: #682F8E;
+}
+.tile-magenta {
+  background: #B159BE;
+}
+.tile-pink {
+  background: #DC687D;
+}
+.tile-grey {
+  background: #707070;
+}
+.tile-black {
+  background: #2C333D;
+}
+.tile-black:after {
+  color: #F5F9FB;
+  font-weight: bold;
+  content: "?";
+}
+.glass {
+  border: 2px solid #B3BDAA;
+  border-radius: 0 0 calc(40px / 2) calc(40px / 2);
+  width: 40px;
+  height: calc(40px * 4 + 40px / 2);
+  margin: 5px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.glass [class^='tile-']:hover {
+  opacity: 0.6;
+}
+#popup-palette {
+  display: none;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: calc(40px * 4 + 5px * 5);
+  height: calc(40px * 4 + 5px * 5);
+  background: #F5F9FB;
+  position: absolute;
+  z-index: 2;
+}
+#popup-palette .row {
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 0;
+}
+#popup-palette .row [class^='tile-']:not(.inactive):hover {
+  border: 2px dashed #F5F9FB;
+}
+#popup-palette .row [class^='tile-'].inactive {
+  cursor: default;
+}
+#palette-counter {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: calc(40px * 6 + 5px * 7);
+  height: calc(40px * 2 + 5px * 3);
+}
+#palette-counter .row {
+  margin-bottom: 0;
+  justify-content: space-evenly;
+}
+#palette-counter .row [class^='tile-'] {
+  cursor: default;
+}
+#palette-counter .row [class^='tile-'] div {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: space-around;
+  width: calc(40px / 2);
+  height: calc(40px / 2);
+  background: #F5F9FB;
+  color: #2C333D;
+  user-select: none;
+}
+[type="number"] {
+  border-radius: 12px 0 0 12px;
+  height: 24px;
+  padding-left: 12px;
+  font-size: 20px;
+  outline: none;
+  border: none;
+  width: 3em;
+}
+[type="radio"] {
+  display: none;
+}
