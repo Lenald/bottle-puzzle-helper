@@ -1,3 +1,8 @@
+/**
+ * TODO:
+ *      - get rid of it
+ *      - delegate everything to cell and/or flask modules
+ */
 define([
     'jquery',
     'popupPalette',
@@ -14,10 +19,10 @@ define([
         initObservers: function() {
             let self = this;
 
-            $(document).on('click', '.bottle > div', function(e) {
+            $(document).on('click', '.flask > div', function(e) {
                 self.init(e);
 
-                /*
+                /**
                  * The popup's top left corner is being positioned in center of the cell.
                  * So, if we click a bit higher or a bit left of it -- the popup.hideOnOuterClick()
                  * will immediately hide the popup, so we need to stop the event propagation right now.

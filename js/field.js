@@ -1,6 +1,8 @@
 define([
-    'jquery'
-], function ($) {
+    'jquery',
+    'flaskRepository',
+    'dragNDrop'
+], function ($, flaskRepository, dragNDrop) {
     'use strict';
 
     return {
@@ -9,6 +11,7 @@ define([
 
             $('#generate').on('click', function() {
                 self.generate();
+                dragNDrop.initObservers();
             });
         },
 
@@ -21,14 +24,18 @@ define([
                 field.val(14);
             }
 
-            let html = '<div class="row">'
-                + this.getGlassHtml().repeat(Math.ceil(count / 2))
-                + '</div><div class="row">'
-                + this.getGlassHtml().repeat(count - Math.ceil(count / 2) - 2)
-                + this.getEmptyGlassHtml().repeat(2)
-                + '</div>';
+            flaskRepository.reset();
 
-            $('#field').html(html);
+            for (let i = 0; i < count; i++) {
+                flaskRepository.create();
+            }
+
+            flaskRepository.fulfill();
+
+            $('#field').html(
+                this.getRowHtml(0, Math.ceil(count / 2))
+                + this.getRowHtml(Math.ceil(count / 2), count)
+            );
 
             $(`#palette-counter [class^="cell-"], #popup-palette [class^="cell-"]`).each(function() {
                 $(this).removeClass('inactive');
@@ -39,12 +46,14 @@ define([
             });
         },
 
-        getGlassHtml: function() {
-            return '<div class="flask">' + '<div class="cell-black"></div>'.repeat(4) + '</div>';
-        },
+        getRowHtml: function(from, to) {
+            let row = '';
 
-        getEmptyGlassHtml() {
-            return '<div class="flask"></div>';
+            for (let i = from; i < to; i++) {
+                row += flaskRepository.getById(i).toHtml();
+            }
+
+            return `<div class="row">${row}</div>`;
         }
     }
 });

@@ -2,6 +2,7 @@
 @cellSize: 40px;
 @spaceBetween: 5px;
 @text-stroke-size: 2px;
+@glow-box-shadow: 0px 0px 51px 4px rgba(250, 255, 219, 0.65);
 
 @white: #F5F9FB;
 @light-grey: #B3BDAA;
@@ -21,7 +22,9 @@
 @black: #1D1D1F;
 // end vars
 
-body { background: @black; }
+body {
+  background: @black;
+}
 
 button {
   display: flex;
@@ -83,7 +86,11 @@ button {
   }
 }
 
-.bottle{
+#field {
+  height: 428px;
+}
+
+.flask{
   border: 2px solid @light-grey;
   border-radius: 0 0 calc(@cellSize / 2) calc(@cellSize / 2);
   width: @cellSize;
@@ -96,6 +103,12 @@ button {
 
   [class^='cell-']:hover {
     opacity: .6;
+  }
+
+  &.dragover {
+    -webkit-box-shadow: @glow-box-shadow;
+    -moz-box-shadow: @glow-box-shadow;
+    box-shadow: @glow-box-shadow;
   }
 }
 

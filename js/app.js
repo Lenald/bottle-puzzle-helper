@@ -8,7 +8,12 @@ requirejs.config({
         ready: 'ready',
         palette: 'palette',
         popup: 'popup',
-        popupPalette: 'popupPalette'
+        popupPalette: 'popupPalette',
+        cell: 'cell/cell',
+        cellRepository: 'cell/cellRepository',
+        flask: 'flask/flask',
+        flaskRepository: 'flask/flaskRepository',
+        dragNDrop: 'drag-n-drop'
     }
 });
 
