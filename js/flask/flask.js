@@ -14,13 +14,19 @@ define([
             },
 
             getFreeValue: function() {
-                return 4 - $(`#flask_${this.id} [class^="cell"]`).length;
+                return 4 - this.content.length;
             },
 
             getTopColor: function() {
-                let cells = $(`#flask_${this.id} [class^="cell"]`);
+                return (this.content.length) ? this.content[this.content.length - 1] : '';
+            },
 
-                return (cells.length) ? cells.last().attr('class').match(/cell-[a-z]+?/)[0] : 'none';
+            addCell: function(cell) {
+                this.content.push(cell);
+            },
+
+            extractCell: function() {
+                return this.content.pop();
             },
 
             fulfill: function() {
@@ -35,6 +41,7 @@ define([
 
             toHtml: function() {
                 let content = '';
+
                 this.content.forEach(function(item) {
                     content += item.toHtml();
                 });
