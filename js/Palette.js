@@ -1,4 +1,8 @@
 export class Palette {
+    /**
+     * @param {string} prevColor
+     * @param {string} currentColor
+     */
     updateCounter (prevColor, currentColor) {
         if (prevColor !== `cell-black`) {
             let element = document.querySelector(`#palette-counter .${prevColor} div`);
@@ -19,12 +23,18 @@ export class Palette {
         }
     }
 
+    /**
+     * @param {string} color
+     */
     activateColor(color) {
         document.querySelectorAll(`#palette-counter .${color}, #popup-palette .${color}`).forEach(function(item) {
             item.classList.remove('inactive');
         });
     }
 
+    /**
+     * @param {string} color
+     */
     inactivateColor(color) {
         document.querySelectorAll(`#palette-counter .${color}, #popup-palette .${color}`).forEach(function(item) {
             item.classList.add('inactive');

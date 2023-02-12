@@ -1,4 +1,6 @@
-body {
+body,
+#field .row,
+.flask {
   background: #1D1D1F;
 }
 button {

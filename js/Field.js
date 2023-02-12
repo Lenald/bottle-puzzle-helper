@@ -2,7 +2,14 @@ import {FlaskRepository} from "./flask/FlaskRepository.js";
 import {DragAndDrop} from "./DragAndDrop.js";
 
 export class Field {
+    /**
+     * @type {DragAndDrop}
+     */
     dragAndDrop = null;
+
+    /**
+     * @type {FlaskRepository}
+     */
     flaskRepository = null;
     
     constructor() {

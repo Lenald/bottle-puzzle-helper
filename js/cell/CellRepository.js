@@ -3,8 +3,16 @@ import {PopupPalette} from "../PopupPalette.js";
 import {Palette} from "../Palette.js";
 
 export class CellRepository {
+    /**
+     * @type {Cell[]}
+     */
     cells = [];
+
     lastId = -1;
+
+    /**
+     * @type {Cell}
+     */
     activeCell = null;
 
     constructor() {
@@ -46,6 +54,9 @@ export class CellRepository {
         });
     }
 
+    /**
+     * @param {Element} element
+     */
     onCellClick(element) {
         this.initActiveCell(element);
         this.popup.show(this.calculatePopupPosition());
@@ -59,6 +70,9 @@ export class CellRepository {
         }
     }
 
+    /**
+     * @param {string} newColor
+     */
     onSetColor(newColor) {
         let prevColor = this.activeCell.getColor();
 
@@ -74,16 +88,27 @@ export class CellRepository {
         this.cells = [];
     }
 
+    /**
+     * @returns {Cell}
+     */
     create() {
         this.cells[++this.lastId] = new Cell(this.lastId);
 
         return this.cells[this.lastId];
     }
 
+    /**
+     * @param {Element} element
+     * @returns {Cell}
+     */
     getByElement(element) {
         return this.getById(parseInt(element.getAttribute('data-id')));
     }
 
+    /**
+     * @param {int} id
+     * @returns {Cell}
+     */
     getById(id) {
         if (this.cells[id]) {
             return this.cells[id];
@@ -92,6 +117,9 @@ export class CellRepository {
         throw new Error('No such entity with id ' + id);
     }
 
+    /**
+     * @param {Element} element
+     */
     initActiveCell(element) {
         this.activeCell = this.getByElement(element);
         this.activeCell.setActive();
@@ -102,6 +130,9 @@ export class CellRepository {
         this.activeCell.setActive(zoom);
     }
 
+    /**
+     * @returns {{top: number, left: number}}
+     */
     calculatePopupPosition() {
         return {
             top: Math.round(this.activeCell.top + this.activeCell.size / 2),

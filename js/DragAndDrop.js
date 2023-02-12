@@ -1,11 +1,12 @@
 /**
  * TODO:
- *      - cancel drag'n'drop if cell is not on top, or the flask is full
- *      - check if cell can be placed (same color)
  *      - implement cascade move
  */
 
 export class DragAndDrop {
+    /**
+     * @type {FlaskRepository}
+     */
     flaskRepository = null;
 
     constructor(flaskRepository) {
@@ -27,13 +28,11 @@ export class DragAndDrop {
 
         document.querySelectorAll('.flask').forEach(function(item) {
             item.addEventListener('dragstart', function (e) {
-                self.flaskRepository.initActiveFlask(e.currentTarget);
-                document.getElementById('field').classList.add('drag');
+                self.onDragStart(e);
             });
             item.addEventListener('dragend', function (e) {
                 document.getElementById('field').classList.remove('drag');
-                self.flaskRepository.resetActiveFlask();
-                self.flaskRepository.resetHoverFlask();
+                self.flaskRepository.moveCell();
             });
             item.addEventListener('dragenter', function (e) {
                 self.flaskRepository.initHoverFlask(e.currentTarget);
@@ -42,8 +41,22 @@ export class DragAndDrop {
 
         document.querySelectorAll('#field .row').forEach(function(item) {
             item.addEventListener('dragenter', function (e) {
-                self.flaskRepository.resetHoverFlask();
+                if (e.eventPhase === e.AT_TARGET) {
+                    self.flaskRepository.resetHoverFlask();
+                }
             });
         });
+    }
+
+    onDragStart(e) {
+        let flask = this.flaskRepository.getByElement(e.target);
+
+        if (flask.getFreeValue() === 4 || flask.getTopColor() === 'cell-black') {
+            e.preventDefault();
+            return;
+        }
+
+        this.flaskRepository.initActiveFlask(e.currentTarget);
+        document.getElementById('field').classList.add('drag');
     }
 }

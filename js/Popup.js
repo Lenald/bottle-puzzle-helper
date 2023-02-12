@@ -1,10 +1,25 @@
 export class Popup {
+    /**
+     * @type {boolean}
+     */
     isShown = false;
+
+    /**
+     * @type {string}
+     */
     htmlId = '';
+
+    /**
+     * @type {HTMLElement}
+     */
     element = null;
+
     top = 0;
+
     left = 0;
+
     width = 0;
+
     height = 0;
 
     constructor() {
@@ -30,6 +45,9 @@ export class Popup {
         this.getElement().style.left = this.left + 'px';
     }
 
+    /**
+     * @param {{top: number, left: number}} position
+     */
     show(position) {
         this.isShown = true;
         this.setPosition(position);
@@ -58,6 +76,9 @@ export class Popup {
         }
     }
 
+    /**
+     * @returns {HTMLElement}
+     */
     getElement() {
         if (this.element === null) {
             if (this.htmlId === '') {

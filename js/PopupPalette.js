@@ -2,9 +2,9 @@ import {Popup} from "./Popup.js";
 
 export class PopupPalette extends Popup{
     htmlId = 'popup-palette';
-    top = 0;
-    left = 0;
+
     width = 185;
+
     height = 185;
 
     initObservers() {
