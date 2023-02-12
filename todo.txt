@@ -1,6 +1,5 @@
 features:
 inactivate extra colors if there is more colors than bottles
-drag'n'drop from glass to glass
 history (for undo)
 settings
 about

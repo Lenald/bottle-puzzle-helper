@@ -59,6 +59,11 @@
         </div>
     </div>
 
-    <script data-main="js/app" src="js/lib/requirejs-2.3.6.min.js"></script>
+    <script type="module">
+        import {Field} from "./js/Field.js";
+
+        let field = new Field();
+        field.generate();
+    </script>
 </body>
 </html>
