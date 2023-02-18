@@ -89,7 +89,7 @@ button {
 }
 
 #field {
-  height: 428px;
+  height: 468px;
 
   &.drag .flask:hover {
     -webkit-box-shadow: @glow-box-shadow;
@@ -186,4 +186,41 @@ button {
 
 [type="radio"] {
   display: none;
+}
+
+#about {
+  width: 700px;
+  color: @white;
+
+  h2 {
+    text-transform: uppercase;
+  }
+
+  p {
+    text-align: justify;
+    text-indent: 2em;
+
+    &.no-indent {
+      text-indent: 0;
+    }
+
+    span.indent {
+      width: 2em;
+      display: inline-block;
+    }
+
+    img {
+      width: 146px;
+
+      &.right {
+        float: right;
+        margin-left: .5em;
+      }
+
+      &.left {
+        float: left;
+        margin-right: .5em;
+      }
+    }
+  }
 }

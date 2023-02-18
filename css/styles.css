@@ -82,7 +82,7 @@ button:hover {
   content: "?";
 }
 #field {
-  height: 428px;
+  height: 468px;
 }
 #field.drag .flask:hover {
   -webkit-box-shadow: 0px 0px 51px 4px rgba(250, 255, 219, 0.65);
@@ -165,4 +165,33 @@ button:hover {
 }
 [type="radio"] {
   display: none;
+}
+#about {
+  width: 700px;
+  color: #F5F9FB;
+}
+#about h2 {
+  text-transform: uppercase;
+}
+#about p {
+  text-align: justify;
+  text-indent: 2em;
+}
+#about p.no-indent {
+  text-indent: 0;
+}
+#about p span.indent {
+  width: 2em;
+  display: inline-block;
+}
+#about p img {
+  width: 146px;
+}
+#about p img.right {
+  float: right;
+  margin-left: 0.5em;
+}
+#about p img.left {
+  float: left;
+  margin-right: 0.5em;
 }
